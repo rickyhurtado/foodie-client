@@ -4,7 +4,7 @@
 
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
-  padding-top: 50px;
+  padding: 10px;
 }
 
 
@@ -87,5 +87,28 @@ body {
   .main {
     padding-right: 40px;
     padding-left: 40px;
+  }
+}
+
+/*
+ *
+ */
+.foodie-sidebar {
+  margin-top: 20px;
+}
+h2 {
+  margin-top: 0;
+}
+.blog-list {
+  .blog-item {
+    margin-top: 20px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    .meta {
+      color: #c5c5c5;
+    }
   }
 }
