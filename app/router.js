@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('blog');
   this.route('recipes');
   this.route('reviews');
+  this.route('sign-in');
 });
 
 export default Router;
