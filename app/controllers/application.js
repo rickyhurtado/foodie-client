@@ -2,10 +2,10 @@ import Ember from 'ember';
 
 const { service } = Ember.inject;
 
-export default Ember.Component.extend({
+export default Ember.Controller.extend({
   session: service('session'),
   actions: {
-    signOut() {
+    invalidateSession(){
       this.get('session').invalidate();
     }
   }

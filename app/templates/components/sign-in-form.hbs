@@ -1,0 +1,15 @@
+<form {{ action "authenticate" on="submit" }} class="sign-in-form">
+  {{#if errorMessage}}
+    <div class="alert alert-danger">{{errorMessage}}</div>
+  {{/if}}
+
+  <div class="form-group">
+    <label for="user-email">Email</label>
+    {{ input value=email placeholder="Enter your email" class="form-control" id="user-email" }}
+  </div>
+  <div class="form-group">
+    <label for="user-password">Password</label>
+    {{ input value=password type="password" placeholder="Enter your password" class="form-control" id="user-password" }}
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>

@@ -11,6 +11,7 @@ Router.map(function() {
   this.route('recipes');
   this.route('reviews');
   this.route('sign-in');
+  this.route('admin');
 });
 
 export default Router;

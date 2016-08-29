@@ -8,15 +8,19 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      {{ link-to 'Foodie | Ora HQ' 'index' class="navbar-brand" }}
+      {{link-to 'Foodie | Ora HQ' 'index' class="navbar-brand"}}
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li>{{ link-to 'Home' 'index' class="active" }}</li>
-        <li>{{ link-to 'Blog' 'blog' }}</li>
-        <li>{{ link-to 'Recipes' 'recipes' }}</li>
-        <li>{{ link-to 'Reviews' 'reviews' }}</li>
-        <li>{{ link-to 'Sign In' 'sign-in' }}</li>
+        <li>{{link-to 'Home' 'index' class="active"}}</li>
+        <li>{{link-to 'Blog' 'blog'}}</li>
+        <li>{{link-to 'Recipes' 'recipes'}}</li>
+        <li>{{link-to 'Reviews' 'reviews'}}</li>
+        {{#if session.isAuthenticated}}
+          <li><a href="#" {{action 'signOut'}}>Sign Out</a></li>
+        {{else}}
+          <li>{{link-to 'Sign In' 'sign-in'}}</li>
+        {{/if}}
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container-fluid -->
