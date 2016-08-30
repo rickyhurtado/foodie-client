@@ -2,8 +2,14 @@
 
 {{nav-bar}}
 
-<div class="container">
-  {{outlet}}
-</div> <!- /container ->
+<div class="clearfix">
+  <div id="main" class="container col-sm-8">
+    {{outlet}}
+  </div>
+
+  <div id="sidebar" class="col-sm-4">
+    {{activity-streams}}
+  </div>
+</div>
 
 {{app-footer}}
