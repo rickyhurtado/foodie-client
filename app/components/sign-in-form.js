@@ -8,7 +8,7 @@ export default Ember.Component.extend({
     authenticate: function() {
       let { email, password } = this.getProperties('email', 'password');
 
-      return this.get('session').authenticate('authenticator:devise', email, password).catch((reason) => {
+      return this.get('session').authenticate('authenticator:devise', email, password).catch(() => {
         this.set('errorMessage', 'Invalid email or password.');
       });
     }
