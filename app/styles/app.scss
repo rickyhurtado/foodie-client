@@ -4,9 +4,15 @@
 
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
-  padding: 10px;
+  padding: 0;
 }
 
+.navbar {
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  border-radius: 0;
+}
 
 /*
  * Global add-ons
