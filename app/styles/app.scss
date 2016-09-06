@@ -176,6 +176,16 @@ h2 {
   }
 }
 
+.blogs-pagination {
+  .btn {
+    &:focus {
+      background-color: #fff;
+      border-color: #ccc;
+      outline: none;
+    }
+  }
+}
+
 .sign-in-form {
   padding-top: 20px;
 }

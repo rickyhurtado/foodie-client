@@ -12,6 +12,7 @@ Router.map(function() {
   this.route('reviews');
   this.route('sign-in');
   this.route('admin');
+  this.route('page', { path: '/page/:page' });
 });
 
 export default Router;
