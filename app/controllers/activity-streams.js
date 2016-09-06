@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   model: [],
   init: function(){
-    let eventSourceUrl = 'activity_streams';
+    let eventSourceUrl = '/activity_streams';
     let initEventSource = true;
     let recentID = 0;
     let delay = 10000;

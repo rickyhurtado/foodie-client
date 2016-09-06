@@ -16,12 +16,11 @@ export default Ember.Route.extend({
           'Content-Type': 'application/vnd.api+json',
           'Accept': 'application/vnd.api+json'
         },
-        data: 'json',
         success: function(data){
           blogs = data;
           resolve(blogs);
         },
-        error: function(){
+        error: function(error){
           reject(error);
         }
       });
