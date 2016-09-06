@@ -7,7 +7,7 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('blog');
+  this.route('posts');
   this.route('recipes');
   this.route('reviews');
   this.route('sign-in');
