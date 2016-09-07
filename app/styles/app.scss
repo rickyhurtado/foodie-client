@@ -5,6 +5,11 @@
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
   padding: 0;
+  -webkit-user-select: none; /* Chrome/Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+ */
+  -o-user-select: none;
+  user-select: none;
 }
 
 .navbar {
@@ -177,12 +182,17 @@ h2 {
 }
 
 .blogs-pagination {
-  .btn {
-    &:focus {
+  .btn-default {
+    &.active, &:focus {
       background-color: #fff;
       border-color: #ccc;
+      box-shadow: none;
       outline: none;
     }
+    &.active:hover {
+      color: #333;
+      background-color: #e6e6e6;
+      border-color: #adadad; }
   }
 }
 

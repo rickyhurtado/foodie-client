@@ -6,7 +6,7 @@
   {{blog-category-link category=category included=included}} •
   <time datetime="{{blog.attributes.published-at}}">{{moment-date blog.attributes.published-at startOf='second'}}</time>
 </p>
-<p>{{truncate-text blog.attributes.body length=100}}</p>
+<p>{{truncate-text blog.attributes.body length=150}}</p>
 <p>
   <a class="btn btn-default" href="/{{string-to-lower 'Post'}}s/{{blog.id}}" role="button">Continue Reading »</a>
 </p>
