@@ -7,8 +7,10 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('posts');
-  this.route('recipes');
+  this.route('posts', function(){
+    this.route('index', { path: '/' });
+    this.route('page', { path: 'page/:page' });
+  });
   this.route('reviews');
   this.route('sign-in');
   this.route('admin');
