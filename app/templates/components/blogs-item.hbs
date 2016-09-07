@@ -1,12 +1,9 @@
-<h2>
-  <a href="/{{string-to-lower 'Post'}}s/{{blog.id}}">{{blog.attributes.title}}</a>
-</h2>
+<h2>{{link-to blog.attributes.title blogRoute blog}}</h2>
+
 <p class="meta">
-  {{blog-author-link authorId=user included=included}} •
-  {{blog-category-link category=category included=included}} •
+  {{link-to author 'users.show' user.data.id}} •
+  {{link-to category categoryRoute}} •
   <time datetime="{{blog.attributes.published-at}}">{{moment-date blog.attributes.published-at startOf='second'}}</time>
 </p>
 <p>{{truncate-text blog.attributes.body length=150}}</p>
-<p>
-  <a class="btn btn-default" href="/{{string-to-lower 'Post'}}s/{{blog.id}}" role="button">Continue Reading »</a>
-</p>
+<p>{{link-to 'Continue Reading »' blogRoute blog class='btn btn-default'}}</p>
