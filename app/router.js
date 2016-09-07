@@ -11,6 +11,10 @@ Router.map(function() {
     this.route('index', { path: '/' });
     this.route('page', { path: 'page/:page' });
   });
+  this.route('recipes', function() {
+    this.route('index', { path: '/' });
+    this.route('page', { path: 'page/:page' });
+  });
   this.route('reviews');
   this.route('sign-in');
   this.route('admin');
