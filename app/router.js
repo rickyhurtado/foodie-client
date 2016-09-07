@@ -7,6 +7,7 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('page', { path: '/page/:page' });
   this.route('posts', function(){
     this.route('index', { path: '/' });
     this.route('page', { path: 'page/:page' });
@@ -15,10 +16,12 @@ Router.map(function() {
     this.route('index', { path: '/' });
     this.route('page', { path: 'page/:page' });
   });
-  this.route('reviews');
+  this.route('reviews', function() {
+    this.route('index', { path: '/' });
+    this.route('page', { path: 'page/:page' });
+  });
   this.route('sign-in');
   this.route('admin');
-  this.route('page', { path: '/page/:page' });
 });
 
 export default Router;
