@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-sm-12">
+    <h1 id="title">{{title}}</h1>
+  </div>
+</div>
+<h2>{{link-to blogTitle blogRoute blogId}}</h2>
+
+<p class="meta">
+  {{link-to author 'blogs.user' authorId}} •
+  {{link-to category categoryRoute}} •
+  <time datetime="{{blog.attributes.published-at}}">{{moment-date blog.attributes.published-at startOf='second'}}</time>
+</p>
+
+{{{unescape-html blogBody}}}

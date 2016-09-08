@@ -172,17 +172,15 @@ h2 {
   }
 }
 
-.blog-list {
-  .blog-item {
-    margin-top: 20px;
+.blog-item, .blog-content {
+  margin-top: 20px;
 
-    &:first-child {
-      margin-top: 0;
-    }
+  &:first-child {
+    margin-top: 0;
+  }
 
-    .meta {
-      color: #c5c5c5;
-    }
+  .meta {
+    color: #c5c5c5;
   }
 }
 
