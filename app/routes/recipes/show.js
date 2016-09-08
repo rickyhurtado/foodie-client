@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   activate: function() {
-    document.title = 'Reviews | Foodie | Ora HQ';
+    document.title = 'Recipes | Foodie | Ora HQ';
   },
   model: function(params){
     let blogsController = this.controllerFor('blogs');
