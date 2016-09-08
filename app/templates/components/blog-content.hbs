@@ -8,7 +8,9 @@
 <p class="meta">
   {{link-to author 'blogs.user' authorId}} •
   {{link-to category categoryRoute}} •
-  <time datetime="{{blog.attributes.published-at}}">{{moment-date blog.attributes.published-at startOf='second'}}</time>
+  <time datetime="{{blog.attributes.published-at}}">{{moment-date publishedAt startOf='second'}}</time>
 </p>
 
 {{{unescape-html blogBody}}}
+
+<p><button {{action 'goBack'}} class="btn btn-default">« Back</button></p>

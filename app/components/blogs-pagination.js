@@ -1,8 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  tagName: 'div',
-  classNames: ['blogs-pagination', 'clearfix'],
+  tagName: '',
+  showPagination: false,
   showHomeLink: false,
   showPrevLink: false,
   showNextLink: false,
@@ -22,6 +22,9 @@ export default Ember.Component.extend({
 
     this.setShowLink('showPrevLink', showPrev, 'prevPage', links.prev);
     this.setShowLink('showNextLink', showNext, 'nextPage', links.next);
+    this.set('showPagination', this.get('showHomeLink') || showPrev || showNext);
+
+    window.scrollTo(0, 0);
   },
   getPage: function(link){
     let urlObject = JSON.parse('{"' + decodeURI(link).replace(/"/g, '\\"').replace(/&/g,'","').replace(/=/g,'":"') + '"}');

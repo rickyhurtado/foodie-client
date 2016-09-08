@@ -8,5 +8,8 @@ export default Ember.Controller.extend({
     invalidateSession(){
       this.get('session').invalidate();
     }
-  }
+  },
+  currentPathChanged: function(){
+    window.scrollTo(0, 0);
+  }.observes('currentPath')
 });

@@ -1,11 +1,17 @@
-{{#if showHomeLink}}
-  {{link-to 'Prev' route class='btn btn-default pull-left'}}
-{{/if}}
+{{#if showPagination}}
+  <hr />
 
-{{#if showPrevLink}}
-  {{link-to 'Prev' page prevPage class='btn btn-default pull-left'}}
-{{/if}}
+  <div class="blogs-pagination clearfix">
+    {{#if showHomeLink}}
+      {{link-to 'Prev' route class='btn btn-default pull-left'}}
+    {{/if}}
 
-{{#if showNextLink}}
-  {{link-to 'Next' page nextPage class='btn btn-default pull-right'}}
+    {{#if showPrevLink}}
+      {{link-to 'Prev' page prevPage class='btn btn-default pull-left'}}
+    {{/if}}
+
+    {{#if showNextLink}}
+      {{link-to 'Next' page nextPage class='btn btn-default pull-right'}}
+    {{/if}}
+  </div>
 {{/if}}

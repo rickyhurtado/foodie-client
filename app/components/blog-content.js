@@ -5,13 +5,13 @@ export default Ember.Component.extend({
   classNames: ['blog-content'],
   blogTitle: '',
   blogBody: '',
+  publishedAt: '',
   blogRoute: '',
   blogId: 0,
   author: '',
   authorId: 0,
   category: '',
   categoryRoute: '',
-  publishedAt: '',
   didReceiveAttrs: function(){
     let title = this.getData('title');
     let body = this.getData('body');
@@ -41,13 +41,6 @@ export default Ember.Component.extend({
   getRel: function(options){
     return this.blog.data.relationships[options.type].data[options.attribute];
   },
-  setBody: function(blogBody){
-    let text = document.createElement('textarea');
-
-    text.innerHTML = blogBody;
-
-    return text.value;
-  },
   blogIncluded: function(options) {
     let included = this.blog.included;
     let attributeValue = included.filterBy('type', options.type).findBy('id', options.id).attributes[options.attribute];
@@ -57,5 +50,17 @@ export default Ember.Component.extend({
     }
 
     return attributeValue;
+  },
+  setBody: function(blogBody){
+    let text = document.createElement('textarea');
+
+    text.innerHTML = blogBody;
+
+    return text.value;
+  },
+  actions: {
+    goBack: function(){
+      history.back();
+    }
   }
 });

@@ -6,4 +6,4 @@
   <time datetime="{{blog.attributes.published-at}}">{{moment-date blog.attributes.published-at startOf='second'}}</time>
 </p>
 <p>{{truncate-text blog.attributes.body length=150}}</p>
-<p>{{link-to 'Continue Reading »' blogRoute blog class='btn btn-default'}}</p>
+<p>{{link-to 'Continue Reading »' blogRoute blogId class='btn btn-default'}}</p>
