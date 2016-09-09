@@ -30,6 +30,7 @@ Router.map(function() {
   this.route('page', { path: '/page/:page' });
   this.route('sign-in');
   this.route('admin');
+  this.route('error', { path: '/*wildcard' });
 });
 
 export default Router;

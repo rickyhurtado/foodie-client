@@ -152,17 +152,20 @@ body {
 .main {
   padding: 20px;
 
+  @media (min-width: 768px) {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+
   .page-header {
     margin-top: 0;
   }
 }
 
-@media (min-width: 768px) {
-  .main {
-    padding-right: 40px;
-    padding-left: 40px;
-  }
+.page-not-found {
+  min-height: 200px;
 }
+
 
 h1#title {
   margin-top: 0;
@@ -196,19 +199,21 @@ a:focus {
   }
 }
 
-.blogs-pagination {
-  .btn-default {
-    &.active, &:focus {
-      background-color: #fff;
-      border-color: #ccc;
-      box-shadow: none;
-      outline: none;
-    }
-    &.active:hover {
-      color: #333;
-      background-color: #e6e6e6;
-      border-color: #adadad; }
+.btn-default {
+  color: #333 !important;
+  text-decoration: none !important;
+
+  &.active, &:focus {
+    background-color: #fff;
+    border-color: #ccc;
+    box-shadow: none;
+    outline: none;
   }
+  &.active:hover, &:active:focus {
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad; }
+    outline: none !important;
 }
 
 .sign-in-form {
