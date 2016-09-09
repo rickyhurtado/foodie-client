@@ -34,6 +34,8 @@ export default Ember.Component.extend({
     this.set('category', categoryName);
     this.set('categoryRoute', category + '.index');
     this.set('blogRoute', category + '.show');
+
+    window.scrollTo(0, 0);
   },
   getData: function(attribute){
     return this.blog.data.attributes[attribute];
