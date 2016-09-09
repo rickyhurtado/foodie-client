@@ -1,4 +1,4 @@
-<a href="/users/{{activity.author_id}}">{{activity.author}}</a>
-{{activity.action}} a
-<a href="{{activity-url activity.category_name activity.blog_id}}">{{string-to-lower activity.category_name}}</a>
-<time>{{moment-date activity.created_at startOf='second'}}</time>.
+{{link-to author 'blogs.user' authorId}}
+{{activityAction}} a
+{{link-to blogType blogRoute blogId}}
+<time>{{moment-date createdAt startOf='second'}}</time>.
