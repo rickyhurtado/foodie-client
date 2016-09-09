@@ -2,7 +2,6 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   getAjax: function(options){
-    let model = this;
     let page = options && options.page ? '?page%5Bnumber%5D=' + options.page : '';
 
     return new Ember.RSVP.Promise(function(resolve, reject){
@@ -16,8 +15,7 @@ export default Ember.Controller.extend({
         },
         data: 'json',
         success: function(data){
-          model = data;
-          resolve(model);
+          resolve(data);
         },
         error: function(error){
           reject(error);
