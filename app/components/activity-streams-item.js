@@ -9,6 +9,7 @@ export default Ember.Component.extend({
   blogRoute: '',
   blogId: 0,
   createdAt: '',
+  deleted: 0,
   didReceiveAttrs: function(){
     let activity = this.activity;
     let category = activity.category_name.toLowerCase();
@@ -20,5 +21,6 @@ export default Ember.Component.extend({
     this.set('blogId', activity.blog_id);
     this.set('activityAction', activity.action);
     this.set('createdAt', activity.created_at);
+    this.set('deleted', activity.deleted);
   }
 });

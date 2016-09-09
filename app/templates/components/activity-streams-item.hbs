@@ -1,4 +1,8 @@
 {{link-to author 'blogs.user' authorId}}
 {{activityAction}} a
-{{link-to blogType blogRoute blogId}}
+{{#if deleted}}
+  <strong>{{blogType}}</strong>
+{{else}}
+  {{link-to blogType blogRoute blogId}}
+{{/if}}
 <time>{{moment-date createdAt startOf='second'}}</time>.
