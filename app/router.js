@@ -23,8 +23,13 @@ Router.map(function() {
     this.route('page', { path: 'page/:page' });
   });
   this.route('blogs', function(){
-    this.route('user', { path: 'user/:user_id' }, function(){
-      this.route('page', { path: 'page/:page' });
+    this.route('users', { path: '/user' }, function(){
+      this.route('user', { path: '/user/:user_id/page/:page' });
+      this.route('user', { path: '/:user_id' }, function(){
+        this.route('pages', { path: '/page' }, function(){
+          this.route('page', { path: '/:page' });
+        });
+      });
     });
   });
   this.route('page', { path: '/page/:page' });
