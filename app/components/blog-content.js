@@ -10,6 +10,7 @@ export default Ember.Component.extend({
   blogId: 0,
   author: '',
   authorId: 0,
+  blogsUserRoute: 'blogs.users.user',
   category: '',
   categoryRoute: '',
   didReceiveAttrs: function(){
@@ -25,7 +26,7 @@ export default Ember.Component.extend({
 
     this.set('blogTitle', title);
     this.set('blogBody', body);
-    this.set('blogRoute', category);
+    this.set('blogRoute', category + '.show');
     this.set('blogId', blogId);
     this.set('publishedAt', date);
     this.set('authorId', authorId);
@@ -33,7 +34,6 @@ export default Ember.Component.extend({
     this.set('categoryRoute', category + '.index');
     this.set('category', categoryName);
     this.set('categoryRoute', category + '.index');
-    this.set('blogRoute', category + '.show');
 
     window.scrollTo(0, 0);
   },

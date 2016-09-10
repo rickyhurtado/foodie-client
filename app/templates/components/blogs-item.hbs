@@ -1,9 +1,9 @@
-<h2>{{link-to blog.attributes.title blogRoute blogId}}</h2>
+<h2>{{link-to blogTitle blogRoute blogId}}</h2>
 
 <p class="meta">
-  {{link-to author 'blogs.user' user.data.id}} •
+  {{link-to author blogsUserRoute authorId}} •
   {{link-to category categoryRoute}} •
-  <time datetime="{{blog.attributes.published-at}}">{{moment-date blog.attributes.published-at startOf='second'}}</time>
+  <time datetime="{{publishedAt}}">{{moment-date publishedAt startOf='second'}}</time>
 </p>
-<p>{{truncate-text blog.attributes.body length=150}}</p>
+<p>{{truncate-text blogBody length=150}}</p>
 <p>{{link-to 'Continue Reading »' blogRoute blogId class='btn btn-default'}}</p>

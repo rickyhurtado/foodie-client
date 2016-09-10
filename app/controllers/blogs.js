@@ -8,7 +8,7 @@ export default Ember.Controller.extend({
       Ember.$.ajax({
         type: 'GET',
         url: '/' + options.route + page,
-        cache: false,
+        cache: true,
         headers: {
           'Content-Type': 'application/vnd.api+json',
           'Accept': 'application/vnd.api+json'

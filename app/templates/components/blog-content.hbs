@@ -6,7 +6,7 @@
 <h2>{{link-to blogTitle blogRoute blogId}}</h2>
 
 <p class="meta">
-  {{link-to author 'blogs.user' authorId}} •
+  {{link-to author blogsUserRoute authorId}} •
   {{link-to category categoryRoute}} •
   <time datetime="{{blog.attributes.published-at}}">{{moment-date publishedAt startOf='second'}}</time>
 </p>
