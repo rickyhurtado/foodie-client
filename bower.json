@@ -1,10 +1,9 @@
 {
   "name": "foodie-client",
   "dependencies": {
-    "ember": "~2.7.0",
+    "ember": "~2.8.0",
     "ember-cli-shims": "0.1.1",
-    "ember-qunit-notifications": "0.1.0",
-    "bootstrap": "^3.3.7",
-    "moment": "momentjs#^2.14.1"
+    "moment": "momentjs#^2.14.1",
+    "bootstrap": "~3.3.5"
   }
 }
