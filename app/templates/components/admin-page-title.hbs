@@ -1,0 +1,13 @@
+{{! app/templates/components/admin-page-title.hbs }}
+
+<div class="col-sm-12">
+  <h1 id="title">
+    {{title}}
+    {{#if backButton}}
+      <button {{action 'goBack'}} class="btn btn-default admin-header-button">Back</button>
+    {{/if}}
+    {{#if newButton}}
+      {{link-to newButtonTitle adminRoute class='btn btn-primary admin-header-button'}}
+    {{/if}}
+  </h1>
+</div>

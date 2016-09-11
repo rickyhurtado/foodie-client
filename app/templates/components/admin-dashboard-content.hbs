@@ -1,0 +1,19 @@
+{{! app/templates/components/admin-dashboard-content.hbs }}
+
+{{#if currentUser.isAdmin}}
+  <hr />
+
+  <p><strong>Manage Users</strong></p>
+  <p>
+    {{link-to 'View Users' 'admin.users.index' class='btn btn-default'}}
+    {{link-to 'New User' 'admin.users.new' class='btn btn-primary'}}
+  </p>
+{{/if}}
+
+<hr />
+
+<p><strong>Manage Blogs</strong></p>
+<p>
+  {{link-to 'View Blogs' 'admin.blogs.index' class='btn btn-default'}}
+  {{link-to 'New Blog' 'admin.blogs.new' class='btn btn-primary'}}
+</p>

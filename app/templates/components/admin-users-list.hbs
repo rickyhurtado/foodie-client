@@ -1,0 +1,23 @@
+{{! app/templates/components/admin-users-list.hbs }}
+
+<table class="table table-bordered">
+  <tbody>
+  {{#each model as |record|}}
+    <tr>
+      <td>
+        {{#link-to 'admin.users.edit' record.id}}{{record.firstName}} {{record.lastName}}{{/link-to}}
+      </td>
+      <td class="user-role">
+        {{#link-to 'admin.users.edit' record.id}}{{record.role}}{{/link-to}}
+      </td>
+    </tr>
+  {{/each}}
+  </tbody>
+</table>
+
+<hr />
+
+<div class="blogs-pagination clearfix">
+  <a href="" class="btn btn-default pull-left">Prev</a>
+  <a href="" class="btn btn-default pull-right">Next</a>
+</div>

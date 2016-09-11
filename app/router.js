@@ -32,9 +32,20 @@ Router.map(function() {
       });
     });
   });
+  this.route('admin', function() {
+    this.route('blogs', { path: '/blogs' }, function(){
+      this.route('index', { path: '/' });
+      this.route('new', { path: '/new' });
+      this.route('edit', { path: '/:id/edit' });
+    });
+    this.route('users', { path: '/users' }, function(){
+      this.route('index', { path: '/' });
+      this.route('new', { path: '/new' });
+      this.route('edit', { path: '/:id/edit' });
+    });
+  });
   this.route('page', { path: '/page/:page' });
   this.route('sign-in');
-  this.route('admin');
   this.route('error', { path: '/*wildcard' });
 });
 

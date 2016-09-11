@@ -1,0 +1,57 @@
+{{! app/templates/components/admin-blog-form.hbs }}
+
+<div class="alert alert-danger">Sample alert message.</div>
+<div class="alert alert-success">Sample success message.</div>
+
+<form {{action 'saveBlog' on='submit'}}>
+  <div class="form-group">
+    <label for="blog-type">Type</label>
+    <div class="btn-group-radio">
+      <label for="blog-type-post">
+        <button class="btn btn-default active">Post</button>
+        <input type="radio" name="blog_type" id="blog-type-post" value="1" class="hide" checked>
+      </label>
+      <label for="blog-type-recipe">
+        <button class="btn btn-default">Recipe</button>
+        <input type="radio" name="blog_type" id="blog-type-recipe" value="2" class="hide">
+      </label>
+      <label for="blog-type-review">
+        <button class="btn btn-default">Review</button>
+        <input type="radio" name="blog_type" id="blog-type-review" value="3" class="hide">
+      </label>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="blog-title">Title</label>
+    <input type="text" class="form-control" name="blog_title" id="blog-title" placeholder="Enter your blog title">
+  </div>
+  <div class="form-group">
+    <label for="blog-body">Body</label>
+    <textarea type="text" class="form-control" name="blog_body" id="blog-body" placeholder="Enter your blog body"></textarea>
+    <p class="help-block">Allowed tags: &lt;p&gt;&lt;em&gt;&lt;strong&gt;&lt;a&gt;&lt;img&gt;</p>
+  </div>
+  <div class="form-group">
+    <label for="blog-published-date">Published Date</label>
+    <input type="text" class="form-control" name="blog_published_date" id="blog-published-date" placeholder="Enter your blog published date">
+    <p class="help-block">FORMAT: yyyy/mm/dd hh:mm:ss</p>
+  </div>
+  <div class="form-group">
+    <label for="blog-status">Status</label>
+    <div class="btn-group-radio">
+      <label for="blog-type-published">
+        <button class="btn btn-default active">Published</button>
+        <input type="radio" name="blog_status" id="blog-type-published" value="Published" class="hide" checked>
+      </label>
+      <label for="blog-type-draft">
+        <button class="btn btn-default">Draft</button>
+        <input type="radio" name="blog_status" id="blog-type-draft" value="Draft" class="hide">
+      </label>
+    </div>
+  </div>
+  <p>
+    <button type="submit" class="btn btn-success btn-block" disabled={{buttonDisabled}}>Save</button>
+  </p>
+  <p>
+    <button {{action 'deleteBlog'}} class="btn btn-danger btn-block" disabled={{buttonDisabled}}>Delete</button>
+  </p>
+</form>

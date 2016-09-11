@@ -1,0 +1,42 @@
+{{! app/templates/components/admin-user-form.hbs }}
+
+<div class="alert alert-danger">Sample alert message.</div>
+<div class="alert alert-success">Sample success message.</div>
+
+<form {{action 'saveUser' on='submit'}}>
+  <div class="form-group">
+    <label for="user-title">Role</label>
+    <div class="btn-group-radio">
+      <label for="user-role-blogger">
+        <button class="btn btn-default active">Blogger</button>
+        <input type="radio" name="user_type" id="user-role-blogger" value="1" class="hide" checked>
+      </label>
+      <label for="user-role-admin">
+        <button class="btn btn-default">Admin</button>
+        <input type="radio" name="user_type" id="user-role-admin" value="2" class="hide">
+      </label>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="user-first-name">First Name</label>
+    <input type="text" class="form-control" name="user_first_name" id="user-first-name" placeholder="Enter first name ">
+  </div>
+  <div class="form-group">
+    <label for="user-last-name">Last Name</label>
+    <input type="text" class="form-control" name="user_last_name" id="user-last-name" placeholder="Enter last name ">
+  </div>
+  <div class="form-group">
+    <label for="user-email">Email</label>
+    <input type="text" class="form-control" name="user_email" id="user-email" placeholder="Enter email" autocomplete="off">
+  </div>
+  <div class="form-group">
+    <label for="user-password">Password</label>
+    <input type="text" class="form-control" name="user_password" id="user-password" placeholder="Enter password" autocomplete="off">
+  </div>
+  <p>
+    <button type="submit" class="btn btn-success btn-block" disabled={{buttonDisabled}}>Save</button>
+  </p>
+  <p>
+    <button {{action 'deleteUser'}} class="btn btn-danger btn-block" disabled={{buttonDisabled}}>Delete</button>
+  </p>
+</form>

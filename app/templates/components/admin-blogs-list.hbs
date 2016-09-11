@@ -1,0 +1,44 @@
+{{! app/templates/components/admin-blogs-list.hbs }}
+
+<table class="table table-bordered">
+  <tbody>
+  {{#each model as |record|}}
+    <tr class="blog-title">
+      <td colspan="2">
+        {{#link-to 'admin.blogs.edit' record.id}}<span class="record-label">Title</span> {{record.title}}{{/link-to}}
+      </td>
+    </tr>
+    {{#if showAuthor}}
+      <tr>
+        <td colspan="2">
+          {{#link-to 'admin.blogs.edit' record.id}}
+            <span class="record-label">Author</span> Blog Author
+          {{/link-to}}
+        </td>
+      </tr>
+    {{/if}}
+    <tr>
+      <td colspan="2">
+        {{#link-to 'admin.blogs.edit' record.id}}
+          <span class="record-label">Published</span> {{formatted-date record.publishedAt format='LL'}}
+        {{/link-to}}
+      </td>
+    </tr>
+    <tr class="type-status">
+      <td>
+        {{#link-to 'admin.blogs.edit' record.id}}<span class="record-label">Type</span> {{record.type}}{{/link-to}}
+      </td>
+      <td>
+        {{#link-to 'admin.blogs.edit' record.id}}<span class="record-label">Status</span> {{record.status}}{{/link-to}}
+      </td>
+    </tr>
+  {{/each}}
+  </tbody>
+</table>
+
+<hr />
+
+<div class="blogs-pagination clearfix">
+  <a href="" class="btn btn-default pull-left">Prev</a>
+  <a href="" class="btn btn-default pull-right">Next</a>
+</div>

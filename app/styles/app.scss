@@ -18,6 +18,16 @@ body {
   border-top: 0;
   border-radius: 0;
 
+  .navbar-brand {
+    background: #e7e7e7;
+    text-decoration: none;
+
+    &:focus, &:active {
+      background: #e7e7e7;
+      text-decoration: none;
+    }
+  }
+
   .navbar-nav {
     a {
       &:hover {
@@ -149,12 +159,16 @@ body {
  * Main content
  */
 
+#main {
+  min-height: 200px;
+}
+
 .main {
   padding: 20px;
 
   @media (min-width: 768px) {
-    padding-right: 40px;
-    padding-left: 40px;
+    padding-right: 20px;
+    padding-left: 20px;
   }
 
   .page-header {
@@ -162,18 +176,14 @@ body {
   }
 }
 
-.page-not-found {
-  min-height: 200px;
-}
-
-
 h1#title {
   margin-top: 0;
   font-size: 25px;
 }
 
 h2 {
-  font-size: 20px;
+  font-size: 18px;
+  margin-bottom: 3px;
   margin-top: 0;
 }
 
@@ -199,21 +209,27 @@ a:focus {
   }
 }
 
-.btn-default {
-  color: #333 !important;
+.btn {
   text-decoration: none !important;
 
   &.active, &:focus {
-    background-color: #fff;
-    border-color: #ccc;
     box-shadow: none;
-    outline: none;
+    outline: none !important;
+  }
+  &.active:hover, &:active:focus {
+    outline: none !important;
+  }
+}
+
+.btn-default {
+  &.active, &:focus {
+    background-color: #fff;
+    border-color: #ccc !important;
   }
   &.active:hover, &:active:focus {
     color: #333;
     background-color: #e6e6e6;
-    border-color: #adadad; }
-    outline: none !important;
+  }
 }
 
 .sign-in-form {
@@ -222,4 +238,94 @@ a:focus {
 
 .app-footer {
   text-align: center;
+}
+
+.admin-header-button {
+  margin-left: 5px;
+  float: right;
+  margin-top: -3px;
+}
+
+.table {
+  border: 1px solid #ddd;
+  margin-bottom: 0;
+  margin-top: 10px;
+
+  th, .table-action {
+    text-align: center;
+    white-space: nowrap;
+  }
+  tr {
+    &.blog-title {
+      background: #f8f8f8;
+
+      td {
+        a {
+          font-weight: bold;
+
+          span {
+            font-weight: normal;
+          }
+        }
+      }
+    }
+
+    &.type-status {
+      td {
+        width: 50%;
+      }
+    }
+
+    td {
+      padding: 0 !important;
+
+      &.user-role {
+        width: 1%;
+      }
+
+      a {
+        display: block;
+        padding: 8px 12px !important;
+
+        &:hover, &:focus, &:active {
+          text-decoration: none;
+        }
+
+        .record-label {
+          color: #ccc;
+          font-size: 12px;
+          margin-right: 5px;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+}
+
+.alert {
+  margin: 10px 0;
+  padding: 10px;
+}
+
+form {
+  margin-top: 10px;
+
+  .form-check-label {
+    font-weight: normal;
+  }
+
+  textarea {
+    min-height: 200px;
+  }
+
+  .btn-group-radio {
+    .btn {
+      &.active {
+        background: #efefef;
+      }
+    }
+  }
+  .help-block {
+    color: #ccc;
+  }
 }
