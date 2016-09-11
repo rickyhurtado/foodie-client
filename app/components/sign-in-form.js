@@ -1,9 +1,7 @@
 import Ember from 'ember';
+import AuthSessionMixin from '../mixins/auth-session-mixin';
 
-const { service } = Ember.inject;
-
-export default Ember.Component.extend({
-  session: service('session'),
+export default Ember.Component.extend(AuthSessionMixin, {
   actions: {
     authenticate: function() {
       let { email, password } = this.getProperties('email', 'password');

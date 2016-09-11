@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import AuthSessionMixin from 'foodie-client/mixins/auth-session';
+import AuthSessionMixin from 'foodie-client/mixins/auth-session-mixin';
 import { module, test } from 'qunit';
 
 module('Unit | Mixin | auth session');

@@ -1,10 +1,9 @@
 import Ember from 'ember';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
-const { service } = Ember.inject;
+import AuthSessionMixin from '../../../mixins/auth-session-mixin';
 
-export default Ember.Route.extend(AuthenticatedRouteMixin, {
+export default Ember.Route.extend(AuthSessionMixin, AuthenticatedRouteMixin, {
   activate: function() {
     document.title = 'Blogs | Admin | Ora HQ';
   },
-  session: service('session')
 });

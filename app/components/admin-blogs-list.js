@@ -1,6 +1,7 @@
 import Ember from 'ember';
+import AuthSessionMixin from '../mixins/auth-session-mixin';
 
-export default Ember.Component.extend({
+export default Ember.Component.extend(AuthSessionMixin, {
   tagName: '',
   model: [
     { id: 3, title: 'First Blog Review', type: 'Review', publishedAt: '2016-07-07 07:07:07', status: 'Draft' },
