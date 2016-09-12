@@ -279,7 +279,8 @@ a:focus {
     td {
       padding: 0 !important;
 
-      &.user-role {
+      &.user-id, &.user-role {
+        text-align: center;
         width: 1%;
       }
 

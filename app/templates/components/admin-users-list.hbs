@@ -1,23 +1,35 @@
 {{! app/templates/components/admin-users-list.hbs }}
 
+{{#if users}}
 <table class="table table-bordered">
-  <tbody>
-  {{#each model as |record|}}
+  <thead>
     <tr>
+      <th>ID</th>
+      <th>User</th>
+      <th>Role</th>
+    </tr>
+  </thead>
+  <tbody>
+  {{#each users as |user|}}
+    <tr>
+      <td class="user-id">
+        {{#link-to 'admin.users.edit' user.id}}{{user.id}}{{/link-to}}
+      </td>
       <td>
-        {{#link-to 'admin.users.edit' record.id}}{{record.firstName}} {{record.lastName}}{{/link-to}}
+        {{#link-to 'admin.users.edit' user.id}}{{user.firstName}} {{user.lastName}}{{/link-to}}
       </td>
       <td class="user-role">
-        {{#link-to 'admin.users.edit' record.id}}{{record.role}}{{/link-to}}
+        {{#link-to 'admin.users.edit' user.id}}{{user.role}}{{/link-to}}
       </td>
     </tr>
   {{/each}}
   </tbody>
 </table>
 
-<hr />
+{{blogs-pagination links=users.links route='admin.users.index' queryParams=true}}
 
-<div class="blogs-pagination clearfix">
-  <a href="" class="btn btn-default pull-left">Prev</a>
-  <a href="" class="btn btn-default pull-right">Next</a>
+{{else}}
+<div class="alert alert-info">
+  <p>There are no users found. {{#link-to 'admin.users.new'}}Create{{/link-to}} a new user instead.</p>
 </div>
+{{/if}}
