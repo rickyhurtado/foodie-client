@@ -8,10 +8,9 @@ export default Ember.Route.extend(AuthSessionMixin, AuthenticatedRouteMixin, {
   },
   renderTemplate: function(controller, model){
     this._super(controller, model);
+    this.initAuthSession();
 
-    let adminController = this.controllerFor('admin');
-
-    if (!adminController.currentUser.isAdmin){
+    if (!this.get('currentUser.isAdmin')){
       this.render('error');
     }
   }
