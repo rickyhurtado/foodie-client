@@ -1,44 +1,46 @@
 {{! app/templates/components/admin-blogs-list.hbs }}
 
+{{#if blogs}}
 <table class="table table-bordered">
   <tbody>
-  {{#each model as |record|}}
-    <tr class="blog-title">
-      <td colspan="2">
-        {{#link-to 'admin.blogs.edit' record.id}}<span class="record-label">Title</span> {{record.title}}{{/link-to}}
-      </td>
-    </tr>
-    {{#if showAuthor}}
+    {{#each blogs as |blog|}}
+      <tr class="blog-title">
+        <td colspan="2">
+          {{#link-to 'admin.blogs.edit' blog.id}}<span class="record-label">Title</span> {{blog.title}}{{/link-to}}
+        </td>
+      </tr>
+      {{#if currentUser.isAdmin}}
+        <tr>
+          <td colspan="2">
+            {{#link-to 'admin.blogs.edit' blog.id}}
+              <span class="record-label">Author</span> {{blog.author}}
+            {{/link-to}}
+          </td>
+        </tr>
+      {{/if}}
       <tr>
         <td colspan="2">
-          {{#link-to 'admin.blogs.edit' record.id}}
-            <span class="record-label">Author</span> Blog Author
+          {{#link-to 'admin.blogs.edit' blog.id}}
+            <span class="record-label">Published</span> {{formatted-date blog.publishedAt format='LL'}}
           {{/link-to}}
         </td>
       </tr>
-    {{/if}}
-    <tr>
-      <td colspan="2">
-        {{#link-to 'admin.blogs.edit' record.id}}
-          <span class="record-label">Published</span> {{formatted-date record.publishedAt format='LL'}}
-        {{/link-to}}
-      </td>
-    </tr>
-    <tr class="type-status">
-      <td>
-        {{#link-to 'admin.blogs.edit' record.id}}<span class="record-label">Type</span> {{record.type}}{{/link-to}}
-      </td>
-      <td>
-        {{#link-to 'admin.blogs.edit' record.id}}<span class="record-label">Status</span> {{record.status}}{{/link-to}}
-      </td>
-    </tr>
-  {{/each}}
+      <tr class="type-status">
+        <td>
+          {{#link-to 'admin.blogs.edit' blog.id}}<span class="record-label">Type</span> {{blog.category.name}}{{/link-to}}
+        </td>
+        <td>
+          {{#link-to 'admin.blogs.edit' blog.id}}<span class="record-label">Status</span> {{blog.formattedStatus}}{{/link-to}}
+        </td>
+      </tr>
+    {{/each}}
   </tbody>
 </table>
 
-<hr />
+{{blogs-pagination links=blogs.links route='admin.blogs.index' queryParams=true}}
 
-<div class="blogs-pagination clearfix">
-  <a href="" class="btn btn-default pull-left">Prev</a>
-  <a href="" class="btn btn-default pull-right">Next</a>
+{{else}}
+<div class="alert alert-info">
+  <p>There are no blogs found. {{#link-to 'admin.blogs.new'}}Create{{/link-to}} a new blog instead.</p>
 </div>
+{{/if}}

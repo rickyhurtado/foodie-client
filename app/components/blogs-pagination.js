@@ -15,7 +15,7 @@ export default Ember.Component.extend({
 
     this.set('showHomeLink', false);
 
-    if (showPrev && this.getPage(links.prev) === '1'){
+    if (!this.queryParams && showPrev && this.getPage(links.prev) === '1'){
       this.set('showHomeLink', true);
       showPrev = false;
     }

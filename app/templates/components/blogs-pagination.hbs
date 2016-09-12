@@ -2,16 +2,26 @@
   <hr />
 
   <div class="blogs-pagination clearfix">
-    {{#if showHomeLink}}
-      {{link-to 'Prev' route class='btn btn-default pull-left'}}
-    {{/if}}
+    {{#if queryParams}}
+      {{#if showPrevLink}}
+        {{link-to 'Prev' route (query-params page=prevPage) class='btn btn-default pull-left'}}
+      {{/if}}
 
-    {{#if showPrevLink}}
-      {{link-to 'Prev' page prevPage class='btn btn-default pull-left'}}
-    {{/if}}
+      {{#if showNextLink}}
+        {{link-to 'Next' route (query-params page=nextPage) class='btn btn-default pull-right'}}
+      {{/if}}
+    {{else}}
+      {{#if showHomeLink}}
+        {{link-to 'Prev' route class='btn btn-default pull-left'}}
+      {{/if}}
 
-    {{#if showNextLink}}
-      {{link-to 'Next' page nextPage class='btn btn-default pull-right'}}
+      {{#if showPrevLink}}
+        {{link-to 'Prev' page prevPage class='btn btn-default pull-left'}}
+      {{/if}}
+
+      {{#if showNextLink}}
+        {{link-to 'Next' page nextPage class='btn btn-default pull-right'}}
+      {{/if}}
     {{/if}}
   </div>
 {{/if}}
