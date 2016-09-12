@@ -12,7 +12,9 @@ export default Ember.Component.extend({
       this.set('blog', blogs[0]);
 
       let authorId = this.getRel({ type: 'user', attribute: 'id' });
-      let author = this.blogIncluded({ id: authorId, type: 'users', attribute: 'full-name'});
+      let firstName = this.blogIncluded({ id: authorId, type: 'users', attribute: 'first-name'});
+      let lastName = this.blogIncluded({ id: authorId, type: 'users', attribute: 'last-name'});
+      let author = firstName + ' ' + lastName;
 
       this.set('blogsByUser', true);
       this.set('title', this.blogsByUserTitle + ' ' + author);
