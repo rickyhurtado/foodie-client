@@ -1,57 +1,50 @@
 {{! app/templates/components/admin-blog-form.hbs }}
 
-<div class="alert alert-danger">Sample alert message.</div>
-<div class="alert alert-success">Sample success message.</div>
+{{#if showAlertMessage}}
+<div class="alert alert-{{alertMessageType}}">{{{alertMessage}}}</div>
+{{/if}}
 
-<form {{action 'saveBlog' on='submit'}}>
+<form {{action 'submitNewBlog' on='submit'}}>
   <div class="form-group">
     <label for="blog-type">Type</label>
     <div class="btn-group-radio">
-      <label for="blog-type-post">
-        <button class="btn btn-default active">Post</button>
-        <input type="radio" name="blog_type" id="blog-type-post" value="1" class="hide" checked>
-      </label>
-      <label for="blog-type-recipe">
-        <button class="btn btn-default">Recipe</button>
-        <input type="radio" name="blog_type" id="blog-type-recipe" value="2" class="hide">
-      </label>
-      <label for="blog-type-review">
-        <button class="btn btn-default">Review</button>
-        <input type="radio" name="blog_type" id="blog-type-review" value="3" class="hide">
-      </label>
+      <button {{action 'clickType' 'Post'}} class="btn btn-default {{activePost}}">Post</button>
+      <button {{action 'clickType' 'Recipe'}} class="btn btn-default {{activeRecipe}}">Recipe</button>
+      <button {{action 'clickType' 'Review'}} class="btn btn-default {{activeReview}}">Review</button>
     </div>
   </div>
   <div class="form-group">
     <label for="blog-title">Title</label>
-    <input type="text" class="form-control" name="blog_title" id="blog-title" placeholder="Enter your blog title">
+    {{input value=blogTitle class=inputClassTitle type='text' id='blog-title' placeholder='Enter your blog title' autocomplete='off'}}
   </div>
   <div class="form-group">
     <label for="blog-body">Body</label>
-    <textarea type="text" class="form-control" name="blog_body" id="blog-body" placeholder="Enter your blog body"></textarea>
+    {{textarea value=blogBody class=inputClassBody type='text' id='blog-body' placeholder='Enter your blog body' autocomplete='off'}}
     <p class="help-block">Allowed tags: &lt;p&gt;&lt;em&gt;&lt;strong&gt;&lt;a&gt;&lt;img&gt;</p>
   </div>
   <div class="form-group">
     <label for="blog-published-date">Published Date</label>
-    <input type="text" class="form-control" name="blog_published_date" id="blog-published-date" placeholder="Enter your blog published date">
+    {{input value=blogPublishedAt class=inputClassDate type='date' id='blog-published-date' placeholder='Enter your blog published date'}}
     <p class="help-block">FORMAT: yyyy/mm/dd hh:mm:ss</p>
   </div>
   <div class="form-group">
     <label for="blog-status">Status</label>
     <div class="btn-group-radio">
-      <label for="blog-type-published">
-        <button class="btn btn-default active">Published</button>
-        <input type="radio" name="blog_status" id="blog-type-published" value="Published" class="hide" checked>
-      </label>
-      <label for="blog-type-draft">
-        <button class="btn btn-default">Draft</button>
-        <input type="radio" name="blog_status" id="blog-type-draft" value="Draft" class="hide">
-      </label>
+      <button {{action 'clickStatus' 'Published'}} class="btn btn-default {{activePublished}}">Published</button>
+      <button {{action 'clickStatus' 'Draft'}} class="btn btn-default {{activeDraft}}">Draft</button>
     </div>
   </div>
   <p>
     <button type="submit" class="btn btn-success btn-block" disabled={{buttonDisabled}}>Save</button>
   </p>
+  {{#if showCancelButton}}
+  <p>
+    <button {{action 'cancelBlog'}} class="btn btn-danger btn-block" disabled={{buttonDisabled}}>Cancel</button>
+  </p>
+  {{/if}}
+  {{#if showDeleteButton}}
   <p>
     <button {{action 'deleteBlog'}} class="btn btn-danger btn-block" disabled={{buttonDisabled}}>Delete</button>
   </p>
+  {{/if}}
 </form>

@@ -330,3 +330,13 @@ form {
     color: #ccc;
   }
 }
+
+.alert {
+  ul {
+    padding: 0 0 0 20px;
+  }
+}
+
+.error {
+  border-color: #a94442;
+}
