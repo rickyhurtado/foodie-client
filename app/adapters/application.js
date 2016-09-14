@@ -13,5 +13,8 @@ export default DS.JSONAPIAdapter.extend(DataAdapterMixin, AuthSessionMixin, {
       'AUTHORIZATION': this.get('currentUser.token'),
       'EMAIL': this.get('currentUser.email')
     };
-  })
+  }),
+  payloadKeyFromModelName: function(modelName) {
+    return Ember.String.singularize(Ember.String.capitalize(modelName));
+  }
 });
