@@ -13,4 +13,9 @@
 
 {{{unescape-html blogBody}}}
 
-<p><button {{action 'goBack'}} class="btn btn-default">Back</button></p>
+<p>
+  <button {{action 'goBack'}} class="btn btn-default">Back</button>
+  {{#if showEditButton}}
+    {{link-to 'Edit' 'admin.blogs.edit' blogId class='btn btn-primary'}}
+  {{/if}}
+</p>

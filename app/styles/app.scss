@@ -232,6 +232,12 @@ a:focus {
   }
 }
 
+.btn-primary {
+  &:focus:hover {
+    color: #fff;
+  }
+}
+
 .sign-in-form {
   padding-top: 20px;
 }

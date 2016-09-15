@@ -5,6 +5,7 @@ export default Ember.Component.extend({
   title: '',
   blog: {},
   blogsByUser: false,
+  showErrorContent: false,
   didReceiveAttrs: function(){
     let blogs = this.blogs.data;
 
@@ -19,6 +20,8 @@ export default Ember.Component.extend({
       this.set('blogsByUser', true);
       this.set('title', this.blogsByUserTitle + ' ' + author);
     }
+
+    this.set('showErrorContent', blogs.length === 0);
   },
   getRel: function(options){
     return this.blog.relationships[options.type].data[options.attribute];

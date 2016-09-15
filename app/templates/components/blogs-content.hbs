@@ -1,12 +1,16 @@
-<div class="row">
-  <div class="col-sm-12">
-    <h1 id="title" class="blogs-content-title">{{title}}</h1>
+{{#if showErrorContent}}
+  {{error-layout}}
+{{else}}
+  <div class="row">
+    <div class="col-sm-12">
+      <h1 id="title" class="blogs-content-title">{{title}}</h1>
+    </div>
   </div>
-</div>
-<div class="blog-list row">
-  {{#each blogs.data as |blog|}}
-    {{blogs-item blog=blog user=blog.relationships.user category=blog.relationships.category included=blogs.included}}
-  {{/each}}
-</div>
+  <div class="blog-list row">
+    {{#each blogs.data as |blog|}}
+      {{blogs-item blog=blog user=blog.relationships.user category=blog.relationships.category included=blogs.included}}
+    {{/each}}
+  </div>
 
-{{blogs-pagination links=blogs.links route=route page=page}}
+  {{blogs-pagination links=blogs.links route=route page=page}}
+{{/if}}

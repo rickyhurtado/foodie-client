@@ -1,6 +1,7 @@
 import Ember from 'ember';
+import AuthSessionMixin from '../mixins/auth-session-mixin';
 
-export default Ember.Component.extend({
+export default Ember.Component.extend(AuthSessionMixin, {
   tagName: 'div',
   classNames: ['blog-item', 'col-md-12'],
   blogTitle: '',
@@ -13,6 +14,7 @@ export default Ember.Component.extend({
   blogsUserRoute: 'blogs.users.user',
   category: '',
   categoryRoute: '',
+  showEditButton: false,
   didReceiveAttrs: function(){
     let title = this.getData('title');
     let body = this.getData('body');
@@ -25,6 +27,8 @@ export default Ember.Component.extend({
     let categoryId = this.category.data.id;
     let category = this.blogsIncluded({ id: categoryId, type: 'categories', attribute: 'name', lowerCase: true}) + 's';
     let categoryName = this.blogsIncluded({ id: categoryId, type: 'categories', attribute: 'name'});
+    let currentUserId = this.get('currentUser.id');
+    let showEditButton = this.get('currentUser.isAdmin') || currentUserId && currentUserId.toString() === authorId;
 
     this.set('blogTitle', title);
     this.set('blogBody', body);
@@ -36,6 +40,7 @@ export default Ember.Component.extend({
     this.set('categoryRoute', category + '.index');
     this.set('category', categoryName);
     this.set('categoryRoute', category + '.index');
+    this.set('showEditButton', showEditButton);
   },
   getData: function(attribute){
     return this.blog.attributes[attribute];
