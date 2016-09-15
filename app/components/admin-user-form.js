@@ -16,6 +16,7 @@ export default Ember.Component.extend(AlertMessageMixin, {
   role: 'Editor',
   activeAdmin: '',
   activeEditor: 'active',
+  passwordConfirmation: '',
   inputClassFirstName: 'form-control',
   inputClassLastName: 'form-control',
   inputClassEmail: 'form-control',
@@ -49,7 +50,7 @@ export default Ember.Component.extend(AlertMessageMixin, {
       this.set('inputClassEmail', 'form-control error');
     }
 
-    if (this.method === 'create' && this.get('password') === undefined){
+    if (this.get('method') === 'create' && this.get('password') === undefined){
       errors.push('Password is required.');
       this.set('inputClassPassword', 'form-control error');
     }
@@ -106,12 +107,15 @@ export default Ember.Component.extend(AlertMessageMixin, {
         user.set('lastName', lastName);
         user.set('email', email);
         user.set('role', role);
-        user.set('password', password);
-        user.set('password_confirmation', password);
+
+        if (password && password.length > 7){
+          user.set('password', password);
+          user.set('passwordConfirmation', password);
+        }
 
         user.save().then(function(){
           self.setAlertMessage('success', `${role} is successfully updated.`);
-        self.resetTextInputClass(self);
+          self.resetTextInputClass(self);
 
           Ember.run.later(function(){
             self.backToUsers();
