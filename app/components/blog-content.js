@@ -16,11 +16,11 @@ export default Ember.Component.extend({
   didReceiveAttrs: function(){
     let title = this.getData('title');
     let body = this.getData('body');
-    let date = this.getData('published-at');
+    let date = this.getData('published_at');
     let blogId = this.blog.data.id;
     let authorId = this.getRel({ type: 'user', attribute: 'id' });
-    let firstName = this.blogIncluded({ id: authorId, type: 'users', attribute: 'first-name'});
-    let lastName = this.blogIncluded({ id: authorId, type: 'users', attribute: 'last-name'});
+    let firstName = this.blogIncluded({ id: authorId, type: 'users', attribute: 'first_name'});
+    let lastName = this.blogIncluded({ id: authorId, type: 'users', attribute: 'last_name'});
     let author = firstName + ' ' + lastName;
     let categoryId = this.getRel({ type: 'category', attribute: 'id' });
     let category = this.blogIncluded({ id: categoryId, type: 'categories', attribute: 'name', lowerCase: true}) + 's';
