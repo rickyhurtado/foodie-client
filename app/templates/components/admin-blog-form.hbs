@@ -4,7 +4,7 @@
 <div class="alert alert-{{alertMessageType}}">{{{alertMessage}}}</div>
 {{/if}}
 
-<form {{action 'submitNewBlog' on='submit'}}>
+<form {{action 'submitBlogForm' on='submit'}}>
   <div class="form-group">
     <label for="blog-type">Type</label>
     <div class="btn-group-radio">
@@ -25,7 +25,6 @@
   <div class="form-group">
     <label for="blog-published-date">Published Date</label>
     {{input value=blogPublishedAt class=inputClassDate type='date' id='blog-published-date' placeholder='Enter your blog published date'}}
-    <p class="help-block">FORMAT: yyyy/mm/dd hh:mm:ss</p>
   </div>
   <div class="form-group">
     <label for="blog-status">Status</label>

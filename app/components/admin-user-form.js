@@ -45,8 +45,9 @@ export default Ember.Component.extend(AlertMessageMixin, {
     }
 
     if (errors.length > 0){
-      message = '<ul><li>' + errors.join('</li><li>') + '</li>';
+      message = this.setErrorMessages(errors);
       this.setAlertMessage('danger', message);
+
       return false;
     }
 

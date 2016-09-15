@@ -14,4 +14,10 @@ export default Ember.Mixin.create({
     this.set('alertMessageType', '');
     this.set('showAlertMessage', false);
   },
+  setAlertErrorMessages: function(errors){
+    return `<ul><li>${errors.join('</li><li>')}</li></ul>`;
+  },
+  formProcessAlertErrorMessage: function(){
+    this.setAlertMessage('danger', 'Unable to process your request. Please try again.');
+  }
 });
