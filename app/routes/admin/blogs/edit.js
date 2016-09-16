@@ -6,6 +6,11 @@ export default Ember.Route.extend(AuthSessionMixin, AuthenticatedRouteMixin, {
   activate: function() {
     document.title = 'Edit Blog | Admin | Ora HQ';
   },
+  beforeModel: function(){
+    let store = this.get('store');
+
+    store.findAll('category');
+  },
   model: function(params){
     let store = this.get('store');
 
