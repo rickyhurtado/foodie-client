@@ -85,7 +85,7 @@ export default Ember.Component.extend(AuthSessionMixin, AlertMessageMixin, {
     let status = self.get('status');
     let date = new Date(`${self.get('blogPublishedAt')} 00:00:00`);
     let blogCategory = store.peekRecord('category', categoryId);
-    let blogUser = store.peekRecord('user', userId);
+    let currentUser = store.peekRecord('user', userId);
     let blog;
 
     if (method === 'create'){
@@ -94,7 +94,7 @@ export default Ember.Component.extend(AuthSessionMixin, AlertMessageMixin, {
         body: body,
         publishedAt: date,
         status: status,
-        user: blogUser,
+        user: currentUser,
         category: blogCategory
       });
 
@@ -112,7 +112,9 @@ export default Ember.Component.extend(AuthSessionMixin, AlertMessageMixin, {
         self.formProcessAlertErrorMessage();
       });
     } else {
-      blog = store.findRecord('blog', self.blog.id).then(function(blog){
+      let blogUser = store.peekRecord('user', self.blog.get('userId'));
+
+      blog = store.findRecord('blog', self.blog.get('id')).then(function(blog){
         blog.set('title', title);
         blog.set('body', body);
         blog.set('publishedAt', date);
