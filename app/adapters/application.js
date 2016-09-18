@@ -10,8 +10,8 @@ export default DS.JSONAPIAdapter.extend(DataAdapterMixin, AuthSessionMixin, {
   },
   headers: Ember.computed('currentUser', function() {
     return {
-      'AUTHORIZATION': this.get('currentUser.token'),
-      'EMAIL': this.get('currentUser.email')
+      X_TOKEN: this.get('currentUser.token'),
+      X_EMAIL: this.get('currentUser.email')
     };
   }),
   payloadKeyFromModelName: function(modelName) {
