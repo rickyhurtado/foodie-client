@@ -1,4 +1,8 @@
-{{link-to author blogsUserRoute authorId}}
+{{#if deleted}}
+  <strong>{{author}}</strong>
+{{else}}
+  {{link-to author blogsUserRoute authorId}}
+{{/if}}
 {{activityAction}} a
 {{#if deleted}}
   <strong>{{blogType}}</strong>
