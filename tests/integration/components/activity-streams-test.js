@@ -38,7 +38,7 @@ test('it renders list of activity streams items', function(assert) {
   assert.equal(this.$('.activity-streams-list ul').text().trim(), 'Foodie Blogger\n' +
                                                                   'published a\n' +
                                                                   '  recipe\na few seconds ago.\n\n' +
-                                                                  '        Foodie Reviewer\n' +
+                                                                  '          Foodie Reviewer\n' +
                                                                   'deleted a\n' +
                                                                   '  review\n2 hours ago.');
 });

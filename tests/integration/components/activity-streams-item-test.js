@@ -19,7 +19,7 @@ const activity = {
 };
 
 test('it renders an activity streams item', function(assert) {
-  assert.expect(8);
+  assert.expect(9);
 
   this.set('activity', activity);
   this.render(hbs`{{activity-streams-item activity=activity}}`);
@@ -42,7 +42,8 @@ test('it renders an activity streams item', function(assert) {
                                            'deleted a\n' +
                                            '  recipe\n' +
                                            'a few seconds ago.');
-  assert.equal(this.$('li a:eq(0)').text(), 'Foodie Blogger');
-  assert.equal(this.$('li strong').text(), 'recipe');
+  assert.equal(this.$('li a:eq(0)').text(), '');
+  assert.equal(this.$('li strong:eq(0)').text(), 'Foodie Blogger');
+  assert.equal(this.$('li strong:eq(1)').text(), 'recipe');
   assert.equal(this.$('li time').text(), 'a few seconds ago');
 });
