@@ -2,22 +2,24 @@ import Ember from 'ember';
 
 export function truncateText(params, options){
   let length = 40;
-  let tmp = document.createElement('div');
+  let stringObject = document.createElement('textarea');
 
-  tmp.innerHTML = params[0];
+  stringObject.innerHTML = params[0];
 
-  let string = tmp.textContent || tmp.innerText || '';
+  let string = stringObject.textContent || stringObject.innerText || '';
+  let strippedHtmlString = Ember.$(string).text();
+
 
   if (!Ember.isEmpty(options.length)){
     length = options.length;
   }
 
-  if (!Ember.isEmpty(string)){
-    if (string.length < length){
-      return string;
+  if (!Ember.isEmpty(strippedHtmlString)){
+    if (strippedHtmlString.length < length){
+      return strippedHtmlString;
     }
 
-    return string.substring(0, length) + '...';
+    return strippedHtmlString.substring(0, length).trim() + '...';
   }
 
   return '';
