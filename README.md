@@ -1,5 +1,5 @@
 # Foodie Client
-[Foodie Client v1.2.0-beta](https://github.com/rickyhurtado/foodie-client/tree/v1.2.0-beta) blogging platform powered by Ember CLI 2.8.0.
+[Foodie Client v1.2.1-beta](https://github.com/rickyhurtado/foodie-client/tree/v1.2.1-beta) blogging platform powered by Ember CLI 2.8.0.
 
 ## Development Setup
 ```
