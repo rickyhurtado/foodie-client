@@ -1,3 +1,4 @@
 {{! app/templates/index.hbs }}
 
-{{blogs-content title='Posts' blogs=model route='posts' page='posts.page'}}
+{{blogs-content title='Posts' blogs=model}}
+{{blogs-pagination links=model.links route='posts' page='posts.page'}}

@@ -1,3 +1,4 @@
 {{! app/templates/reviews/page.hbs }}
 
-{{blogs-content title='Reviews' blogs=model route='reviews' page='reviews.page'}}
+{{blogs-content title='Reviews' blogs=model}}
+{{blogs-pagination links=model.links route='reviews' page='reviews.page'}}

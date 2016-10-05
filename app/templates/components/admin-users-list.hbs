@@ -26,8 +26,6 @@
   </tbody>
 </table>
 
-{{blogs-pagination links=users.links route='admin.users.index' queryParams=true}}
-
 {{else}}
 <div class="alert alert-info">
   <p>There are no users found. {{#link-to 'admin.users.new'}}Create{{/link-to}} a new user instead.</p>

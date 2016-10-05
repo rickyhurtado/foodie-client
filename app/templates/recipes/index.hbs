@@ -1,3 +1,4 @@
 {{! app/templates/recipes/page.hbs }}
 
-{{blogs-content title='Recipes' blogs=model route='recipes' page='recipes.page'}}
+{{blogs-content title='Recipes' blogs=model}}
+{{blogs-pagination links=model.links route='recipes' page='recipes.page'}}

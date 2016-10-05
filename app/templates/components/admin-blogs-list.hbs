@@ -37,8 +37,6 @@
   </tbody>
 </table>
 
-{{blogs-pagination links=blogs.links route='admin.blogs.index' queryParams=true}}
-
 {{else}}
 <div class="alert alert-info">
   <p>There are no blogs found. {{#link-to 'admin.blogs.new'}}Create{{/link-to}} a new blog instead.</p>
