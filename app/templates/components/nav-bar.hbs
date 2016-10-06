@@ -23,7 +23,7 @@
               <strong>{{currentUser.fullName}}</strong> <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
-              <li>{{link-to 'Dasbboard' 'admin.index'}}</li>
+              <li>{{link-to 'Dashboard' 'admin.index'}}</li>
               <li>{{link-to 'Blogs' 'admin.blogs' (query-params page=1)}}</li>
               {{#if currentUser.isAdmin}}
                 <li>{{link-to 'Users' 'admin.users' (query-params page=1)}}</li>
