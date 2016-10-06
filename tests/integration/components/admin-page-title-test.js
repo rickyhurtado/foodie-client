@@ -5,20 +5,32 @@ moduleForComponent('admin-page-title', 'Integration | Component | admin page tit
   integration: true
 });
 
-test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+test('displays an admin page header with "New" and "Back" buttons', function(assert) {
+  assert.expect(3);
 
-  this.render(hbs`{{admin-page-title}}`);
+  this.render(hbs`{{admin-page-title title='Edit Blog' newButtonTitle='New Blog' newButton=true backButton=true}}`);
 
-  assert.equal(this.$().text().trim(), '');
+  assert.equal(this.$().text().trim(), "Edit Blog\n      Back\n      New Blog");
+  assert.equal(this.$('a').text().trim(), 'New Blog');
+  assert.equal(this.$('button').text().trim(), 'Back');
+});
 
-  // Template block usage:
-  this.render(hbs`
-    {{#admin-page-title}}
-      template block text
-    {{/admin-page-title}}
-  `);
+test('displays an admin page header with "New" button and without "Back" button', function(assert) {
+  assert.expect(3);
 
-  assert.equal(this.$().text().trim(), 'template block text');
+  this.render(hbs`{{admin-page-title title='Blogs' newButtonTitle='New Blog' newButton=true}}`);
+
+  assert.equal(this.$().text().trim(), "Blogs\n      New Blog");
+  assert.equal(this.$('a').text().trim(), 'New Blog');
+  assert.equal(this.$('button').text().trim(), '');
+});
+
+test('displays an admin page header without the "New" and "Back" buttons', function(assert) {
+  assert.expect(3);
+
+  this.render(hbs`{{admin-page-title title='Blogs'}}`);
+
+  assert.equal(this.$().text().trim(), 'Blogs');
+  assert.equal(this.$('a').text().trim(), '');
+  assert.equal(this.$('button').text().trim(), '');
 });
