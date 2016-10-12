@@ -3,8 +3,11 @@ import { module, test } from 'qunit';
 
 module('Unit | Helper | unescape html');
 
-// Replace this with your real tests.
-test('it works', function(assert) {
-  let result = unescapeHtml([42]);
-  assert.ok(result);
+test('parses the HTML tags from a text', function(assert) {
+  assert.expect(1);
+
+  let text = '&lt;p&gt;This text is wrapped with a paragraph tag.&lt;/p&gt;';
+  let newText = unescapeHtml([text]);
+
+  assert.equal(newText, '<p>This text is wrapped with a paragraph tag.</p>');
 });

@@ -3,8 +3,10 @@ import { module, test } from 'qunit';
 
 module('Unit | Helper | formatted date');
 
-// Replace this with your real tests.
-test('it works', function(assert) {
-  let result = formattedDate([42]);
-  assert.ok(result);
+test('formats datetime to "month day, year" if "LL" format option is used', function(assert) {
+  assert.expect(1);
+
+  let date = formattedDate(['2007-07-07 00:00:00'], { format: 'LL'});
+
+  assert.equal(date, 'July 7, 2007');
 });
